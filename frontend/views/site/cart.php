@@ -1,21 +1,13 @@
-<?php
 
-/* @var $this yii\web\View */
+<?php
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
-$this->title = 'About';
-$this->params['breadcrumbs'][] = $this->title;
+/* @var $this yii\web\View */
+/* @var $model frontend\models\Listing */
+/* @var $form yii\widgets\ActiveForm */
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-
-    <code><?= __FILE__ ?></code>
-</div>
-
 
 <div class="container">
     <div class="row">
@@ -52,7 +44,19 @@ $this->params['breadcrumbs'][] = $this->title;
             <div class="row">
               <div class="col-lg-12 col-md-12">
                 <?php $form = ActiveForm::begin(); ?>
-                  
+                    <?= $form->field($model, 'status')->hiddenInput(['value'=>1])->label(false) ?>
+                
+            
+                <?= $form->field($model, 'listingName')->textInput(['maxlength' => true]) ?>
+            
+                <?= $form->field($model, 'listingDesc')->textarea(['rows' => 6]) ?>
+            
+                <?= $form->field($model, 'videoUrl')->textInput(['maxlength' => true]) ?>
+            
+                <?= $form->field($model, 'size')->textInput(['maxlength' => true]) ?>
+            
+                <?= $form->field($model, 'price')->textInput() ?>
+            
                 <div class="form-group">
                     <?= Html::submitButton('<span class="fa fa-forward"></span> Next', ['class' => 'btn btn-success pull-right']) ?>
                 </div>
