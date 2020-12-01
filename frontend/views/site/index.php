@@ -1,7 +1,13 @@
 <?php
-use frontend\models\Shoes;
 
-$shoeTotal = Shoes::find()->all();
+
+use frontend\models\Shoes;
+use frontend\models\Shoesimage;
+use yii\helpers\Html;
+use yii\helpers\Url;
+
+$shoeTotal = Shoes::find()->joinWith('shoesimages')->all();
+
 
 /* @var $this yii\web\View */
 
@@ -88,7 +94,7 @@ $this->title = 'My Yii Application';
   
         <div class="col-md-4" style="float:left;">
          <div class="card mb-2">
-            <img class="card-img-top img-fluid" src="images/men8.jpg" alt="">
+            <img class="card-img-top img-fluid" src="images/men4.jpg" alt="">
             
           </div>
           <h4 class="card-title">Product Name</h4>
@@ -122,7 +128,7 @@ $this->title = 'My Yii Application';
   
         <div class="col-md-4" style="float:left">
             <div class="card mb-2">
-               <img class="card-img-top img-fluid" src="images/men6.jpg" alt="">
+               <img class="card-img-top img-fluid" src="images/men3.jpg" alt="">
                
              </div>
              <h4 class="card-title">Product Name</h4>
@@ -170,7 +176,7 @@ $this->title = 'My Yii Application';
       <!--Top kicks carousel-->
 <div class="container-fluid kick">
     <div class="row">
-     <h2 class="text-left"> Top Kicks</h2>
+     <h2 class="text-center"> Top Kicks</h2>
      <div class="col-md-12 ">
         <!--Carousel Wrapper-->
 <div id="multi-item-example2" class="carousel slide carousel-multi-item" data-ride="carousel">
@@ -233,7 +239,8 @@ $this->title = 'My Yii Application';
        <?php foreach ($shoeTotal as $shoe) { ?>
         <div class="col-md-4" style="float:left">
             <div class="card mb-3">
-               <img class="card-img-top " src="images/men7.jpg" alt="">
+            <!-- //shoesimages is a ...found on the shoes model -->
+               <img class="card-img-top " src="<?= $shoe->shoesimages[0]->image ?>" alt="">
                
              </div>
              <h4 class="card-title"><?= $shoe['shoeName'] ?></h4>

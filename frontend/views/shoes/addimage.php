@@ -9,10 +9,12 @@ use yii\widgets\ActiveForm;
 ?>
 <div class="addimage">
 
-    <?php $form = ActiveForm::begin(); ?>
+<?php $form = ActiveForm::begin(['id' => 'image-create'],[
+        'options' => ['enctype' => 'multipart/form-data']
+    ]); ?>
 
-        <?= $form->field($model, 'shoesId') ?>
-        <?= $form->field($model, 'image')->fileInput() ?>
+        <?= $form->field($model, 'shoesId')->hiddenInput(['value' => $shoesId])->label(false) ?>
+        <?= $form->field($model, 'image')->fileInput(['maxlength' => true]) ?>
     
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>

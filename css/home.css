@@ -28,7 +28,7 @@ background-color: #000000;
 	height:400px;
 	width: 100%;
 	margin-bottom: 70px;
-	padding-top: 2rem;
+	padding-top: 4rem;
 
 }
 .card.card-category {
@@ -64,8 +64,11 @@ margin-top: 2rem;
     text-align: justify;
 }
 .kick{
-    background-color: #f82121;
-    margin-top: 2rem;
+   
+    margin-top: 3rem;
+ }
+ .kick h2{
+    
  }
 #social li{
     display: inline;
@@ -75,22 +78,25 @@ margin-top: 2rem;
    
 }
 .footer{
-    padding-top: 2rem;
     background: #000000;
-}
-.footer li{
-    text-align: center;
-    list-style-type: none;
-    color: #ffffff;
-
+    padding-top: 1rem;
+    padding-left: 2rem;
 }
 
-.foot{
-    
-    text-align: center;
-    padding-top: 2rem;
-    color: #ffffff;
+.footer h5{
+    color: #a8a4a4;
+    font-family: Poppins;
+
 }
+.footer p{
+    color: #ffffff;
+    font-family: Poppins;
+}
+.social p{
+    display: inline;
+    padding: 10px;
+}
+
 .card-img-top {
     width: 100%;
     height: 16rem;
@@ -101,4 +107,9 @@ margin-top: 2rem;
     color: #ffffff;
     padding-top: 2rem;
     padding-bottom: 2rem;
+}
+/*create listing/images*/
+.addimage{
+    margin-top: 4rem;
+    padding-top: 4rem;
 }

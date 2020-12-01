@@ -31,8 +31,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'attributes' => [
             'shoesId',
             'shoeName',
+            'shoeSize',
             'price',
+            'brandId',
             'description:ntext',
+            'tags',
             'image',
             'status',
             'categoryId',

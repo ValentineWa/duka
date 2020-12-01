@@ -144,7 +144,27 @@ class SiteController extends Controller
     {
         return $this->render('about');
     }
-
+    public function actionWomen()
+    {
+        return $this->render('women');
+    }
+    
+    public function actionMen()
+    {
+        return $this->render('men');
+    }
+    public function actionKids()
+    {
+        return $this->render('kids');
+    }
+    public function actionAccess()
+    {
+        return $this->render('access');
+    }
+    public function actionSearchresult()
+    {
+        return $this->render('searchresult');
+    }
     /**
      * Signs user up.
      *

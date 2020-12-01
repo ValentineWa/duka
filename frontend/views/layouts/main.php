@@ -8,6 +8,7 @@ use yii\widgets\Breadcrumbs;
 use frontend\assets\AppAsset;
 use common\widgets\Alert;
 use yii\helpers\Url;
+
 AppAsset::register($this);
 ?>
 <?php $this->beginPage() ?>
@@ -38,13 +39,13 @@ AppAsset::register($this);
               <a class="nav-link" href="site/index">Home <span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="women.html">Women</a>
+              <a class="nav-link" href="site/women">Women</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="men.html">Men</a>
+              <a class="nav-link" href="site/men">Men</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="site/about">Kids</a>
+              <a class="nav-link" href="site/kids">Kids</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="site/searchresult">result</a>
@@ -55,10 +56,10 @@ AppAsset::register($this);
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accessories</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="access.html">Gold</a>
-                <a class="dropdown-item" href="access.html">Silver</a>
+                <a class="dropdown-item" href="site/access">Gold</a>
+                <a class="dropdown-item" href="site/access">Silver</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="access.html">Platinum</a>
+                <a class="dropdown-item" href="site/access">Platinum</a>
               </div>
             </li>
           </ul>
@@ -67,11 +68,11 @@ AppAsset::register($this);
             <div class="search-cart-nav">
               <ul class="navbar-nav mr-auto right">
             <li class="nav-item search">
-              <form class="navbar-form navbar-left" action="/action_page.php">
+              <form class="navbar-form navbar-left" action="<?= Url::to(['shoes/_search']) ?>" >
                 <div class="input-group">
-                  <input type="text" class="form-control" placeholder="Search">
+                  <input type="text" class="form-control" type="search" name="keyword" placeholder="Search">
                   <div class="input-group-btn">
-                    <button class="btn btn-default" type="submit">
+                    <button class="btn btn-default" >
                       <i class="fa fa-search"></i>
                     </button>
                   </div>
@@ -139,69 +140,70 @@ AppAsset::register($this);
         </ul>
       </div>
     </div>
-  </footer>-->
-   <!--footer-->
-<div class="container-fluid ">
-  <div class="row ">
-    <div class="col-lg-12 footer">
+  </footer>--><!--footer-->
+<div class="container-fluid footer">
+  <div class="row">
+    <div class="col-md-12">
       <div class="row">
-                        
-          <div class="col-lg-2">
-            <h5 class="foot">My Account</h5>
-              <ul>
-                <li>Sign in</li>
-                <li>Register</li>
-                <li>Order Status</li>
-               </ul>
-          </div>
-           <div class="col-lg-2">
-               <h5 class="foot">Help</h5>
-                 <ul>
-                  <li>Shipping</li>
-                  <li>Returns</li>
-                  <li>Sizing</li>
-                 </ul>
-           </div>
-                   
-           <div class="col-lg-2 ">
-             <h5  class="foot">About</h5>
-              <ul>
-                <li>Our story</li>
-                <li>Media</li>
-                <li>Sustainability</li>
-              </ul>
-            </div>
-                       
-            <div class="col-lg-2 ">
-              <h5 class="foot">Legal stuff</h5>
-                <ul>
-                 <li>Terms of use</li>
-                 <li>Terms of sale</li>
-                 <li>Privacy Policy</li>
-                </ul>
-             </div>
+        <div class="col-md-2">
+          <h5>My Account</h5>
+         <p> Sign in</p>
+         <p> Register</p>
+         <p> Order Status</p>
+
+        </div>
+        <div class="col-md-2">
+          <h5>Help</h5>
+          <p>Shipping</p>
+          <p>Returns</p>
+          <p>Sizing</p>
+        </div>
+        <div class="col-md-2">
+          <h5>About</h5>
+          <p>Our Story</p>
+          <p>Media</p>
+          <p>Sustainability</p>
+        </div>
+        <div class="col-md-2">
+          <h5>Legal Stuff</h5>
+          <p>Terms of Use</p>
+          <p>Terms of Sale</p>
+          <p>Privacy Policy</p>
+        </div>
+        <div class="col-md-2 social">
+          <h5>Follow Sam's</h5>
+          <p><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i></p>
+          <p><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></p>
+          <p><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></p>
+          <p><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></p>
+          
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-4">
+
+        </div>
+        <div class="col-md-4 copy">
+          <p><i class="fa fa-copyright" aria-hidden="true"></i>2020 Sam's Shoes In. All Rights Reserved.</p>
+       
+        </div>
+        <div class="col-md-4">
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
-            <div class="col-lg-3">
-             <h5 class="foot">Follow Sam's</h5>
-               <ul id="social" >
-                 <li><i class="fa fa-facebook-square fa-lg" aria-hidden="true"></i></li>
-                 <li><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></li>
-                 <li><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></li>
-                 <li><i class="fa fa-linkedin-square fa-lg" aria-hidden="true"></i></li>
-               </ul>
-            </div>
-           </div>
-           <div class="row">
-             <div class="col-lg-12 copy">
-              <i class="fa fa-copyright" aria-hidden="true"></i>2020 Sam's Shoes In. All Rights Reserved.             </div>
-           </div>
-                </div> 
 
-            </div>
 
-          </div>
-          <!--end-->
+
+
+
+
+<!--end-->
+
             <!--footer-->
 <?php $this->endBody() ?>
 

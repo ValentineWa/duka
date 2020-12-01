@@ -67,45 +67,38 @@ class ShoesController extends Controller
     public function actionCreate()
     {
         $model = new Shoes();
-        
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
 
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+          
             return $this->redirect(['addimage', 'shoesId' => $model->shoesId]);
         }
-        
+
         return $this->render('create', [
             'model' => $model,
         ]);
     }
-   
 
     public function actionAddimage($shoesId)
     {
         $model = new Shoesimage();
         if ($model->load(Yii::$app->request->post()))
-        
-        {//generates images with unique names
-        $imageName = bin2hex(openssl_random_pseudo_bytes(10));
-        $model->image = UploadedFile::getInstance($model, 'image');
-       
-        //saves file in the root directory
-         $model->image->saveAs('uploads/'.$imageName.'.'.$model->image->extension);
+        {
 
+           //generates images with unique names
+            $imageName = bin2hex(openssl_random_pseudo_bytes(10));
+            $model->image = UploadedFile::getInstance($model, 'image');
+            //saves file in the root directory
+            $model->image->saveAs('uploads.'.$imageName.'.'.$model->image->extension);
             //save in the db
             $model->image='uploads/'.$imageName.'.'.$model->image->extension;
-       
-             $model->save();
-
-
-             return $this->redirect(['index']);
-       
+            $model->save();
+            return $this->redirect(['index']);
         }
-        
-        return $this->render('addimage', [
-            'model' => $model,
-            'shoesId' => $shoesId,
-            
-        ]);
+            return $this->render('addimage', [
+                'model' => $model,
+                'shoesId' =>$shoesId,
+
+            ]);
     }
     /**
      * Updates an existing Shoes model.
@@ -114,11 +107,6 @@ class ShoesController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
-
-
-
-
-
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);

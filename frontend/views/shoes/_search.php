@@ -19,11 +19,17 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'shoeName') ?>
 
+    <?= $form->field($model, 'shoeSize') ?>
+
     <?= $form->field($model, 'price') ?>
 
-    <?= $form->field($model, 'description') ?>
+    <?= $form->field($model, 'brandId') ?>
 
-    <?= $form->field($model, 'image') ?>
+    <?php // echo $form->field($model, 'description') ?>
+
+    <?php // echo $form->field($model, 'tags') ?>
+
+    <?php // echo $form->field($model, 'image') ?>
 
     <?php // echo $form->field($model, 'status') ?>
 

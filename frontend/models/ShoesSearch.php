@@ -17,8 +17,8 @@ class ShoesSearch extends Shoes
     public function rules()
     {
         return [
-            [['shoesId', 'status', 'categoryId'], 'integer'],
-            [['shoeName', 'description', 'image', 'createdAt'], 'safe'],
+            [['shoesId', 'brandId', 'status', 'categoryId'], 'integer'],
+            [['shoeName', 'shoeSize', 'description', 'tags', 'image', 'createdAt'], 'safe'],
             [['price'], 'number'],
         ];
     }
@@ -61,13 +61,16 @@ class ShoesSearch extends Shoes
         $query->andFilterWhere([
             'shoesId' => $this->shoesId,
             'price' => $this->price,
+            'brandId' => $this->brandId,
             'status' => $this->status,
             'categoryId' => $this->categoryId,
             'createdAt' => $this->createdAt,
         ]);
 
         $query->andFilterWhere(['like', 'shoeName', $this->shoeName])
+            ->andFilterWhere(['like', 'shoeSize', $this->shoeSize])
             ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'tags', $this->tags])
             ->andFilterWhere(['like', 'image', $this->image]);
 
         return $dataProvider;
