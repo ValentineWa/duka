@@ -125,16 +125,16 @@ $this->title = 'My Yii Application';
                   <hr>
                   <p>There are many variations of passages of Lorem Ipsum.</p>
                   <hr>
-                  <span><del>Ksh 3000</del> Ksh<?= $shoez->price?></span>
+                  <span> Ksh<?= $shoez->price?></span>
                   <div class="clear-fix"></div>
-                  <h4>Description:</h4>
+                  <h4><?= $shoez->description ?></h4>
                   <p class="text-muted">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es</p>
                 </div>
                 </div>
               </div>
               <div class="modal-footer">
-                <a href="checkout.html" type="button" class="btn btn-danger">Proceed Check Out</a>
-                <a href="" type="button" class="btn btn-primary">Add to Cart</a>
+              <a href="<?= Url::to(['shoes/addtocart', 'shoesId'=>$shoez->shoesId])?>" class="btn btn-dark" role="button">Add to Cart</a>
+              
               </div>
             </div>
           </div>
