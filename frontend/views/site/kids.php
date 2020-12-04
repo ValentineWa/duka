@@ -11,21 +11,18 @@ use frontend\models\Shoesimage;
 
 $shoeTotal = Shoes::find()->where(['categoryId'=> 3])->joinWith('shoesimages')->all();
 
-$this->title = 'Women Collections';
+$this->title = 'Kids Collections';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-
-    <code><?= __FILE__ ?></code>
+    
 </div>
 
 
 <div class="container-fluid added">
-  <h4 class="d-flex justify-content-center">Women's Catalogue</h4>
-  <div class="row">
+   <div class="row">
    
 
      

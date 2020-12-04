@@ -10,11 +10,16 @@ top: 582px;
 background-color: #000000;
 
 }
+.bloody{
+    margin-top: 40rem;
+}
 .explore{
     position: absolute;
-    top: 8px;
-    left: 16px;
+    top: 50%;
+    left: 15%;
+    transform: translate(-50%, -50%);
 }
+
 .tex{
     text-align: center;
 }
@@ -67,9 +72,12 @@ margin-top: 2rem;
    
     margin-top: 3rem;
  }
- .kick h2{
-    
- }
+ .btitley{
+    position: absolute;
+    bottom: 8px;
+    left: 16px;
+   
+}
 #social li{
     display: inline;
    align-items: center;
@@ -82,7 +90,9 @@ margin-top: 2rem;
     padding-top: 1rem;
     padding-left: 2rem;
 }
-
+.froot a:link{
+    color: #ffffff;
+}
 .footer h5{
     color: #a8a4a4;
     font-family: Poppins;
@@ -112,4 +122,57 @@ margin-top: 2rem;
 .addimage{
     margin-top: 4rem;
     padding-top: 4rem;
+}
+
+/* product page */
+.product{
+    margin: 3rem;
+    margin-top: 5rem;
+}
+.prod{
+background-color: #f3f2f2;
+}
+.jordan{
+    padding-left: 4rem;
+}
+/* cart page */
+.carrt{
+    padding-right: 4rem;
+   padding-left: 4rem;
+   margin-top: 4rem;
+    
+}
+.shopp{
+   padding-top: 2rem;
+}
+
+.itemlist{
+    padding-top: 1rem;
+}
+.trash{
+    color: red;
+}
+.form-check{
+    padding-bottom: 2rem;
+}
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+/*add to cart*/
+.addtocart{
+    margin-top: 5rem;
+    width: 70rem;
+}
+/*sllider*/
+.scrolling-wrapper{
+	overflow-x: auto;
+}
+.card-1{
+width: 20rem;
+}
+.adding{
+    margin-top: 10rem;
 }

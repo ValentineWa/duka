@@ -3,18 +3,16 @@
 namespace frontend\models;
 
 use Yii;
-
+use common\models\User;
 /**
  * This is the model class for table "cart".
  *
  * @property int $cartId
  * @property int $shoesId
- * @property int $totalItems
- * @property float $totalPrice
- * @property int $createdBy
+ * @property int $userId
  *
  * @property Shoes $shoes
- * @property User $createdBy0
+ * @property User $user
  * @property Myorder[] $myorders
  */
 class Cart extends \yii\db\ActiveRecord
@@ -33,11 +31,10 @@ class Cart extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['shoesId', 'totalItems', 'totalPrice', 'createdBy'], 'required'],
-            [['shoesId', 'totalItems', 'createdBy'], 'integer'],
-            [['totalPrice'], 'number'],
+            [['shoesId', 'userId'], 'required'],
+            [['shoesId', 'userId'], 'integer'],
             [['shoesId'], 'exist', 'skipOnError' => true, 'targetClass' => Shoes::className(), 'targetAttribute' => ['shoesId' => 'shoesId']],
-            [['createdBy'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['createdBy' => 'id']],
+            [['userId'], 'exist', 'skipOnError' => true, 'targetClass' => User::className(), 'targetAttribute' => ['userId' => 'id']],
         ];
     }
 
@@ -49,9 +46,7 @@ class Cart extends \yii\db\ActiveRecord
         return [
             'cartId' => 'Cart ID',
             'shoesId' => 'Shoes ID',
-            'totalItems' => 'Total Items',
-            'totalPrice' => 'Total Price',
-            'createdBy' => 'Created By',
+            'userId' => 'User ID',
         ];
     }
 
@@ -66,13 +61,13 @@ class Cart extends \yii\db\ActiveRecord
     }
 
     /**
-     * Gets query for [[CreatedBy0]].
+     * Gets query for [[User]].
      *
      * @return \yii\db\ActiveQuery
      */
-    public function getCreatedBy0()
+    public function getUser()
     {
-        return $this->hasOne(User::className(), ['id' => 'createdBy']);
+        return $this->hasOne(User::className(), ['id' => 'userId']);
     }
 
     /**

@@ -52,6 +52,23 @@ class Shoes extends \yii\db\ActiveRecord
             [['categoryId'], 'exist', 'skipOnError' => true, 'targetClass' => Shoescategory::className(), 'targetAttribute' => ['categoryId' => 'categoryId']],
         ];
     }
+    public function actionAddcart($shoesId)
+{
+    $model = new Cart();
+
+    if ($model->load(Yii::$app->request->post())) {
+
+        $model->save();
+
+            return $this->redirect(['shoes/cart']);
+
+    }
+
+    return $this->renderAjax('addcart', [
+        'model' => $model,
+        'shoesId' => $shoesId,
+    ]);
+}
 
     /**
      * {@inheritdoc}

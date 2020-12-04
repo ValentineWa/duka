@@ -14,12 +14,14 @@ use frontend\models\PasswordResetRequestForm;
 use frontend\models\ResetPasswordForm;
 use frontend\models\SignupForm;
 use frontend\models\ContactForm;
-
+use frontend\models\Shoes;
+use frontend\models\Cart;
 /**
  * Site controller
  */
 class SiteController extends Controller
 {
+    public $enableCsrfValidation = false;
     /**
      * {@inheritdoc}
      */
@@ -135,6 +137,7 @@ class SiteController extends Controller
         }
     }
 
+    
     /**
      * Displays about page.
      *
@@ -160,6 +163,23 @@ class SiteController extends Controller
     public function actionAccess()
     {
         return $this->render('access');
+    }
+    public function actionProduct()
+    {
+        return $this->render('product');
+    }
+
+    public function actionCart()
+    {
+        return $this->render('cart');
+    }
+    public function actionViewitem()
+    {
+        return $this->render('viewitem');
+    }
+    public function actionCheckout()
+    {
+        return $this->render('checkout');
     }
     public function actionSearchresult()
     {

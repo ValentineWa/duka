@@ -11,20 +11,18 @@ use frontend\models\Shoesimage;
 
 $shoeTotal = Shoes::find()->where(['categoryId'=> 2])->joinWith('shoesimages')->all();
 
-$this->title = 'Women Collections';
+$this->title = 'Men Collections';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="site-about">
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <p>This is the About page. You may modify the following file to customize its content:</p>
-
-    <code><?= __FILE__ ?></code>
+    
 </div>
 
 
 <div class="container-fluid added">
-  <h4 class="d-flex justify-content-center">Women's Catalogue</h4>
+ 
   <div class="row">
    
 
@@ -47,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <?php foreach ($shoeTotal as $shoe) { ?>
   <div class="col-md-4">
     <div class="card border-0 woman">
-      <img class="img-fluid" src="<?= Yii::$app->request->baseUrl.'/'.$shoe->shoesimages[0]->image ?>">
+      <img class="img-fluid" src="<?= $shoe->shoesimages[0]->image ?>">
      <div> <p class="btitle font-italic"><?=$shoe->shoeName ?></p></div>
       <div><p class="btitlde font-weight-light">Ksh<span><?= $shoe->price ?></p></div>
        </div>

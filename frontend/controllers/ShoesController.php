@@ -10,6 +10,7 @@ use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use frontend\models\Cart;
 
 /**
  * ShoesController implements the CRUD actions for Shoes model.
@@ -100,7 +101,28 @@ class ShoesController extends Controller
 
             ]);
     }
-    /**
+    
+    public function actionAddtocart($shoesId)
+    {
+        $model = new Cart();
+    
+        if ($model->load(Yii::$app->request->post())) {
+    
+            $model->save();
+    
+                return $this->redirect(['site/cart']);
+    
+        }
+    
+        return $this->renderAjax('addtocart', [
+            'model' => $model,
+            'shoesId' => $shoesId,
+        ]);
+    }
+   
+
+
+  /**
      * Updates an existing Shoes model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id

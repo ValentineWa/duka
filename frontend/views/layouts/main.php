@@ -25,7 +25,7 @@ AppAsset::register($this);
 </head>
 <body class="h-75">
 <?php $this->beginBody() ?>
-<div class="wrap" style="background: url(images/desert1.jpg)">
+<div class="wrap" style="background: url(images/desert2.jpg)">
 <header class="header">
 <nav class="navbar nav-boot navbar-expand-lg fixed-top navbar-light bg-light navbar-fixed">
         <a class="navbar-brand" href="index.html">Duka Prototype</a>
@@ -80,11 +80,11 @@ AppAsset::register($this);
               </form> </li><!--/.search-->
            
              <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="shoes/cart.php" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
+              <a class="nav-link dropdown-toggle" id="cart_button" onlick="show_cart();" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="shoes/cart.php">Item(s)  <span class="centered">Quality</span> <span class="pull-right">Price</span></a>
-                <a class="dropdown-item" href="shoes/cart.php">Vans 1   <span class="centered">1</span><span class="pull-right">200</span></a>
-                <a class="dropdown-item" href="shoes/cart.php">Jordan x <span class="centered">1</span> <span class="pull-right">200</span></a>
+                <a class="dropdown-item" href="site/cart">Item(s)  <span class="centered">Quality</span> <span class="pull-right">Price</span></a>
+                <a class="dropdown-item" href="site/cart">Vans 1   <span class="centered">1</span><span class="pull-right">200</span></a>
+                <a class="dropdown-item" href="site/cart">Jordan x <span class="centered">1</span> <span class="pull-right">200</span></a>
                 <div class="dropdown-divider"></div>
                 <a class="dropdown-item" href="#">Total price <span class="pull-right">400</span></a>
               </div>
@@ -147,8 +147,8 @@ AppAsset::register($this);
       <div class="row">
         <div class="col-md-2">
           <h5>My Account</h5>
-         <p> Sign in</p>
-         <p> Register</p>
+         <p class="froot"><a href="site/login">Sign in</a></p>
+         <p class="froot"><a href="site/signup"> Register</a></p>
          <p> Order Status</p>
 
         </div>
@@ -206,7 +206,8 @@ AppAsset::register($this);
 
             <!--footer-->
 <?php $this->endBody() ?>
-
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>

@@ -14,21 +14,24 @@ $shoeTotal = Shoes::find()->joinWith('shoesimages')->all();
 $this->title = 'My Yii Application';
 ?>
 <div class="site-index d-flex align-items-center">
-<div class="container-fluid">
+<div class="container-fluid bloody" >
 
 
-<div class="explore">
-        <h1>Built</h1>
-            <h1>for flight</h1>
-            <p>Introducing product name</p>
-            <p>Our lightest shoe,Ever.</p>
-            <p><button class="btn btn-dark btn-lg">Shop</button></p>
-         </div>
+  <div class="explore">
+          <h1>Built</h1>
+              <h1>for flight</h1>
+              <p>Introducing product name</p>
+              <p>Our lightest shoe,Ever.</p>
+              <p><button class="btn btn-dark btn-lg">Shop</button></p>
+          </div>
+        </div>
       </div>
     </div>
-  </div>
+
+
 </div>
 </div>
+
 
 
 <!--Releases-->
@@ -62,219 +65,117 @@ $this->title = 'My Yii Application';
 <!--end-->
 
 
-<!--New Releases carousel-->
-<div class="container-fluid ">
-    <div class="row">
-     <h2 class="text-left"> New Releases</h2>
-     <div class="col-md-12 ">
-        <!--Carousel Wrapper-->
-<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-    <!--Controls-->
-    <div class="controls-top">
-      <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-      <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
-          class="fa fa-chevron-right"></i></a>
-    </div>
-    <!--/.Controls-->
-  
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-      <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
-      <li data-target="#multi-item-example" data-slide-to="1"></li>
-      
-    </ol>
-    <!--/.Indicators-->
-  
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-  
-      <!--First slide-->
-      <div class="carousel-item active">
-  
-        <div class="col-md-4" style="float:left;">
-         <div class="card mb-2">
-            <img class="card-img-top img-fluid" src="images/men4.jpg" alt="">
-            
-          </div>
-          <h4 class="card-title">Product Name</h4>
-          <p class="card-text">Ksh.2000</p>
-        </div>
-  
-       
-        <div class="col-md-4" style="float:left">
-            <div class="card mb-2">
-               <img class="card-img-top img-fluid " src="images/women3.jpg" alt="">
-               
-             </div>
-             <h4 class="card-title">Product Name</h4>
-             <p class="card-text">Ksh.2000</p>
-           </div>
-        
-           <div class="col-md-4" style="float:left">
-            <div class="card mb-2">
-               <img class="card-img-top img-fluid " src="images/men1.jpg" alt="Card image cap">
-               
-             </div>
-             <h4 class="card-title">Product Name</h4>
-             <p class="card-text">Ksh.2000</p>
-           </div>
-  
-      </div>
-      <!--/.First slide-->
-  
-      <!--Second slide-->
-      <div class="carousel-item">
-  
-        <div class="col-md-4" style="float:left">
-            <div class="card mb-2">
-               <img class="card-img-top img-fluid" src="images/men3.jpg" alt="">
-               
-             </div>
-             <h4 class="card-title">Product Name</h4>
-             <p class="card-text">Ksh.2000</p>
-           </div>
-  
-           <div class="col-md-4" style="float:left">
-            <div class="card mb-2">
-               <img class="card-img-top img-fluid" src="images/kid5.jpg" alt="">
-               
-             </div>
-             <h4 class="card-title">Product Name</h4>
-             <p class="card-text">Ksh.2000</p>
-           </div>
-  
-        
-           <div class="col-md-4" style="float:left">
-            <div class="card mb-2">
-               <img class="card-img-top img-fluid" src="images/kid2.jpg" alt="">
-               
-             </div>
-             <h4 class="card-title">Product Name</h4>
-             <p class="card-text">Ksh.2000</p>
-           </div>
-  
-      </div>
-      <!--/.Second slide-->
-  
-     
-  
-    </div>
-    <!--/.Slides-->
-  
-  </div>
-  <!--/.Carousel Wrapper-->
-              
 
 
-</div>
-      
-        </div>
-        </div>
-      <!--end-->
 
-      <!--Top kicks carousel-->
+
+      <!--New Releases-->
+
 <div class="container-fluid kick">
+<h2 class="text-center">New Releases</h2>
     <div class="row">
-     <h2 class="text-center"> Top Kicks</h2>
-     <div class="col-md-12 ">
-        <!--Carousel Wrapper-->
-<div id="multi-item-example2" class="carousel slide carousel-multi-item" data-ride="carousel">
-
-    <!--Controls-->
-    <div class="controls-top">
-      <a class="btn-floating" href="#multi-item-example2" data-slide="prev"><i class="fa fa-chevron-left"></i></a>
-      <a class="btn-floating" href="#multi-item-example2" data-slide="next"><i
-          class="fa fa-chevron-right"></i></a>
-    </div>
-    <!--/.Controls-->
+        <div class="col-md-12 subscribe">
+            <div class="row">
+            <?php $i = 0;
+       foreach ($shoeTotal as $shoez) {
+         if (++$i > 4) break; ?>
   
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-      <li data-target="#multi-item-example2" data-slide-to="0" class="active"></li>
-      <li data-target="#multi-item-example2" data-slide-to="1"></li>
-      
-    </ol>
-    <!--/.Indicators-->
-  
-    <!--Slides-->
-    <div class="carousel-inner" role="listbox">
-  
-      <!--First slide-->
-      <div class="carousel-item active">
-  
-        <div class="col-md-4" style="float:left">
-         <div class="card mb-3">
-            <img class="card-img-top " src="images/men5.jpg" alt="">
-            
-          </div>
-          <h4 class="card-title">Product Name</h4>
-          <p class="card-text">Ksh.2000</p>
-        </div>
-  
-       
-        <div class="col-md-4" style="float:left">
-            <div class="card mb-3">
-               <img class="card-img-top " src="images/women5.jpg" alt="">
-               
-             </div>
-             <h4 class="card-title">Product Name</h4>
-             <p class="card-text">Ksh.2000</p>
-           </div>
-        
-           <div class="col-md-4" style="float:left">
-            <div class="card mb-3">
-               <img class="card-img-top " src="images/kid4.jpg" alt="Card image cap">
-               
-             </div>
-             <h4 class="card-title">Product Name</h4>
-             <p class="card-text">Ksh.2000</p>
-           </div>
-  
-      </div>
-      <!--/.First slide-->
-  
-      <!--Second slide-->
-      <div class="carousel-item">
-       <?php foreach ($shoeTotal as $shoe) { ?>
-        <div class="col-md-4" style="float:left">
-            <div class="card mb-3">
-            <!-- //shoesimages is a ...found on the shoes model -->
-               <img class="card-img-top " src="<?= $shoe->shoesimages[0]->image ?>" alt="">
-               
-             </div>
-             <h4 class="card-title"><?= $shoe['shoeName'] ?></h4>
-             <p class="card-text">Ksh<span><?= $shoe['price']?></p>
-           </div>
-  <?php } ?>
-           
-      </div>
-      </div>
-      <!--/.Second slide-->
-  
-     
-  
-    </div>
-    <!--/.Slides-->
-  
-  </div>
-  <!--/.Carousel Wrapper-->
+            <div class="col-md-3 ">
+                    <div class="card border border-light rounded"> <a href="<?= Url::to(['site/viewitem', 'shoesId'=>$shoez->shoesId])?>">
+                   
+                        <img src="images/men3.jpg" class="img-fluid">
+                       
+                       <!-- modal btn -->
+               <a href="<?= Url::to(['shoes/addtocart', 'shoesId'=>$shoez->shoesId])?>" class="btn btn-outline-info btitley" role="button">Add to Cart</a>
+               <a href="" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-info  centered" role="button">Quick View
               
+                <p></p>
+            </a>
+               
 
-
-
-      
+                 </div>
+                 </a>
+                    <h4 class="card-title"><?= $shoez['shoeName'] ?></h4>
+              <p class="card-text">Ksh<span><?= $shoez['price']?></p>
+                </div>
+                </a>
+                <?php } ?>
+             
+               
+       </div>
+       </div>
+       </div>
+       </div>
+       <!-- single add to cart modal -->
+       <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="row">
+                <div class="col-md-4">
+                  <img src="" class="img-fluid" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <h3><?= $shoez->shoeName?></h3>
+                  <hr>
+                  <p>There are many variations of passages of Lorem Ipsum.</p>
+                  <hr>
+                  <span><del>Ksh 3000</del> Ksh<?= $shoez->price?></span>
+                  <div class="clear-fix"></div>
+                  <h4>Description:</h4>
+                  <p class="text-muted">Nam liber tempor cum soluta nobis eleifend option congue nihil imperdiet doming id quod mazim placerat facer possim assum. Typi non habent claritatem insitam; es</p>
+                </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <a href="checkout.html" type="button" class="btn btn-danger">Proceed Check Out</a>
+                <a href="" type="button" class="btn btn-primary">Add to Cart</a>
+              </div>
+            </div>
+          </div>
         </div>
-        </div>
-      <!--end-->
-
-
-
-
-
-
+        <!-- end single add to cart modal -->
+       <!--end-->
+       <!--Top Kicks-->
+<div class="container-fluid kick">
+<h2 class="text-center"> Top Kicks</h2>
+    <div class="row">
+        <div class="col-md-12 subscribe">
+            <div class="row">
+            <?php $i = 0;
+       foreach ($shoeTotal as $shoe) {
+         if (++$i > 4) break; ?>
+  
+            <div class="col-md-3">
+                    <div class="card border border-light rounded"> <a href="<?= Url::to(['site/viewitem', 'shoesId'=>$shoez->shoesId])?>" >
+                        <img src="images/men5.jpg" class="img-fluid">
+                        
+                         <a href="<?= Url::to(['shoes/addtocart', 'shoesId'=>$shoe->shoesId])?>" class="btn btn-outline-info btitley" role="button">Add to Cart</a>
+                            <!-- modal btn -->
+              <a href="" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-info  centered" role="button">Quick View
+              
+                <p></p>
+            </a>
+                 </div>
+                 </a>
+                    <h4 class="card-title"><?= $shoe['shoeName'] ?></h4>
+              <p class="card-text">Ksh<span><?= $shoe['price']?></p>
+                </div>
+                <?php } ?>
+            
+              </div>
+       </div>
+       </div>
+       </div>
+       <!--end-->
       <!--Subscribe section-->
 <div class="container-fluid">
+  
     <div class="row">
         <div class="col-md-12 subscribe">
             <div class="row">
@@ -293,5 +194,3 @@ $this->title = 'My Yii Application';
     </div>
 </div>
       <!--end-->
-
-
