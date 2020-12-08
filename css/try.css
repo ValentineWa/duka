@@ -1,0 +1,33 @@
+
+.header{
+	width: 100%;
+	overflow: auto;
+	background-color: #31353d;
+	color: #00a000;
+	clear: both;
+	padding: 20px 50px;
+	box-sizing: border-box;	
+}
+
+.heading{
+	float: left;
+}
+
+.cart{
+	float: right;
+	text-align: center;
+}
+
+.total-text p{
+	display: inline;
+}
+
+#cart-items{
+	position: absolute;
+	right: 20px;
+	top: 10%;
+	background-color: #31353d;
+	margin-top: 50px;
+	padding: 50px 40px;
+	z-index: 999;
+}

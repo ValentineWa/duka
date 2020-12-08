@@ -15,6 +15,7 @@ class AppAsset extends AssetBundle
        // 'css/site.css',
         'css/home.css',
        // 'css/nav.css',
+       'css/try.css',
     ];
     public $js = [
         'js/custom.js',

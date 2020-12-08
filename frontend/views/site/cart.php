@@ -68,23 +68,24 @@ $cartPrice = Cart::find()->joinWith('shoes')->sum('price');
 
          <div class="itemlist border-bottom">
           <div class="row">
-            <div class="col-md-2 " style="width: 7rem;">
+            <div class="col-md-3 " style="width: 7rem;">
              <div class="card border-0">
                <img src="images/women3.jpg" class="img-fluid">
              </div>
             </div>
-            <div class="col-md-5">
+            <div class="col-md-6">
               <p><b>Name:</b> <?=$calist->shoes->shoeName ?></p>
               <p><b>Description:</b> <?=$calist->shoes->description ?></p>
               <p><b>Size:</b> <?=$calist->shoes->shoeSize ?></p>
-              <p> <i class="fa fa-trash-o trash" aria-hidden="true"></i></p>
+              <!-- <p> <i class="fa fa-trash-o trash" aria-hidden="true"></i></p> -->
             </div>
-            <div class="col-md-3">
+            
+            <!-- <div class="col-md-3">
               <div class="quantity buttons_added">
-                <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="3" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+                <input type="button" onchange="quantityChannge(this)" value="-" id="quantity" class="minus"><input type="number" step="1" min="1" max="3" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
               </div>
-            </div>
-            <div class="col-md-2">
+            </div> -->
+            <div class="col-md-3">
               <p>Ksh<?=$calist->shoes->price?></p>
             </div>
           </div>
@@ -158,7 +159,7 @@ $cartPrice = Cart::find()->joinWith('shoes')->sum('price');
             </div>
              
           
-           <a href="<?= Url::to(['site/checkout'])?>" class="btn btn-dark btn-lg" role="button">Checkout</a>
+           <a href="<?= Url::to(['shoes/checkout'])?>" class="btn btn-dark btn-lg" role="button">Checkout</a>
                 
           </div>
          

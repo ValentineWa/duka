@@ -177,13 +177,36 @@ class SiteController extends Controller
     {
         return $this->render('viewitem');
     }
-    public function actionCheckout()
+    public function actionCongrats()
     {
-        return $this->render('checkout');
+        return $this->render('congrats');
     }
+    // public function actionCheckout()
+    // {
+    //     return $this->render('checkout');
+    // }
     public function actionSearchresult()
     {
         return $this->render('searchresult');
+    }
+      
+    public function actionAddtocart($shoesId)
+    {
+        $model = new Cart();
+    
+        if ($model->load(Yii::$app->request->post())) {
+    
+            $model->save();
+    
+                return $this->redirect(['site/cart']);
+    
+        }
+    
+        return $this->renderAjax('addtocart', [
+            'model' => $model,
+            'shoesId' =>$shoesId,
+           
+        ]);
     }
     /**
      * Signs user up.

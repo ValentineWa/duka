@@ -1,22 +1,21 @@
-
 <?php
 
 use yii\helpers\Html;
-use yii\widgets\ActiveForm;
-use yii\helpers\ArrayHelper;
-use frontend\models\Shoes;
+use common\models\User;
 use frontend\models\Cart;
+use yii\widgets\ActiveForm;
+use frontend\models\Shoes;
 
 /* @var $this yii\web\View */
-/* @var $model frontend\models\Listing */
-/* @var $form yii\widgets\ActiveForm */
-$cartPrice = Cart::find()->joinWith('shoes')->sum('price');
+/* @var $model frontend\models\Myorder */
+/* @var $form ActiveForm */
+
+$userId = user::find()->where(['id'=>Yii::$app->user->id])->one();
+$total_shoes = Cart::find()->JoinWith('shoes')->all();
+$cartPrice = Cart::find()->JoinWith('shoes')->sum('price');
+
 ?>
-
-
-
-
-
+    
 <div class="container-fluid carrt">
     <h4 class="d-flex justify-content-center">Check Out</h4>
     <div class="row">
@@ -24,31 +23,28 @@ $cartPrice = Cart::find()->joinWith('shoes')->sum('price');
         <div class="row">
           <div class="col-md-8 card shadow-lg p-3 mb-5 bg-white rounded shopp">
  <h5>Billing Details</h5>
- <form>
+ 
+<?php $form = ActiveForm::begin(); ?>
+<?= $form->field($model, 'userId')->hiddenInput(['value'=>$userId->id, 'readonly'=> true])->label(false) ?> ?>
     <div class="form-group">
-      <label for="exampleFormControlInput1">Email address</label>
-      <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+    <?= $form->field($model, 'emailAddress') ?>
     </div>
-    
+  
     <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
-        <i class="fa fa-credit-card-alt" aria-hidden="true"></i><label class="form-check-label" for="exampleRadios1">
-          Credit Card
-        </label>
+    <?= $form->field($model, 'paymentMethod')->dropDownList([ 'Credit Card' => 'Credit Card', 'M-Pesa' => 'M-Pesa', '' => '', ], ['prompt' => '']) ?>
+
+     
       </div>
-      <div class="form-check">
-        <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"><i class="fa fa-cc-paypal" aria-hidden="true"></i>
-        <label class="form-check-label" for="exampleRadios2">
-         M-pesa
-        </label>
-      </div>
+      
+      <?= $form->field($model, 'phoneNo') ?>
+        <!-- <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="23458"> -->
+     
+      <!-- <button onclick="window.location.href='site.index';" class="btn btn-success btn-lg btn-block rounded-0">Place Order</button>
+                 -->
       <div class="form-group">
-        <label for="exampleFormControlInput1">Card Number</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="23458">
-      </div>
-      <button onclick="window.location.href='site.index';" class="btn btn-success btn-lg btn-block rounded-0">Place Order</button>
-                
-  </form>
+            <?= Html::submitButton('Place Order', ['class' => 'btn btn-success btn-lg btn-block rounded-0']) ?>
+        </div>
+  <?php ActiveForm::end(); ?>
 
 
 

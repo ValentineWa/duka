@@ -45,7 +45,7 @@ $this->params['breadcrumbs'][] = $this->title;
   <div class="col-md-4">
     <div class="card border-0 woman">
       <img class="img-fluid" src="<?= Yii::$app->request->baseUrl.'/'.$shoe->shoesimages[0]->image ?>">
-     <div> <p class="btitle font-italic"><?=$shoe->shoeName ?></p></div>
+     <div> <p class="btitle font-italic"><?= $shoe['shoeName'] ?></p></div>
       <div><p class="btitlde font-weight-light">Ksh<span><?= $shoe->price ?></p></div>
        </div>
   </div><?php } ?>

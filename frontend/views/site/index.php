@@ -2,9 +2,11 @@
 
 
 use frontend\models\Shoes;
+use frontend\models\Cart;
 use frontend\models\Shoesimage;
 use yii\helpers\Html;
 use yii\helpers\Url;
+use yii\bootstrap4\Modal;
 
 $shoeTotal = Shoes::find()->joinWith('shoesimages')->all();
 
@@ -18,10 +20,10 @@ $this->title = 'My Yii Application';
 
 
   <div class="explore">
-          <h1>Built</h1>
-              <h1>for flight</h1>
-              <p>Introducing product name</p>
-              <p>Our lightest shoe,Ever.</p>
+          <h1 class="font-weight-bolder">Built</h1>
+              <h1 class="font-weight-bolder">for flight</h1>
+              <p class="font-weight-bolder">Introducing product name</p>
+              <p class="font-weight-bolder">Our lightest shoe,Ever.</p>
               <p><button class="btn btn-dark btn-lg">Shop</button></p>
           </div>
         </div>
@@ -83,10 +85,11 @@ $this->title = 'My Yii Application';
             <div class="col-md-3 ">
                     <div class="card border border-light rounded"> <a href="<?= Url::to(['site/viewitem', 'shoesId'=>$shoez->shoesId])?>">
                    
-                        <img src="images/men3.jpg" class="img-fluid">
+                         <img src="images/women4.jpg" class="img-fluid">
+
                        
                        <!-- modal btn -->
-               <a href="<?= Url::to(['shoes/addtocart', 'shoesId'=>$shoez->shoesId])?>" class="btn btn-outline-info btitley" role="button">Add to Cart</a>
+               <button type="button" class="btn btn-outline-info btn-sm btitley addtocart">Add to cart</button>
                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-info  centered" role="button">Quick View
               
                 <p></p>
@@ -154,8 +157,7 @@ $this->title = 'My Yii Application';
             <div class="col-md-3">
                     <div class="card border border-light rounded"> <a href="<?= Url::to(['site/viewitem', 'shoesId'=>$shoez->shoesId])?>" >
                         <img src="images/men5.jpg" class="img-fluid">
-                        
-                         <a href="<?= Url::to(['shoes/addtocart', 'shoesId'=>$shoe->shoesId])?>" class="btn btn-outline-info btitley" role="button">Add to Cart</a>
+                        <button type="button"  val="<?=$shoe->shoesId?>" class="btn btn-outline-info btn-sm btitley addtocart">Add to cart</button>
                             <!-- modal btn -->
               <a href="" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-info  centered" role="button">Quick View
               
@@ -194,3 +196,14 @@ $this->title = 'My Yii Application';
     </div>
 </div>
       <!--end-->
+      
+	<?php
+        Modal::begin([
+            'title'=>'<h4>addtocart</h4>',
+            'id'=>'addtocart',
+            'size'=>'modal-sm'
+            ]);
+
+        echo "<div id='addtocartContent'></div>";
+        Modal::end();
+      ?>

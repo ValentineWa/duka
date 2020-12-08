@@ -11,7 +11,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
 use frontend\models\Cart;
-
+use frontend\models\Myorder;
 /**
  * ShoesController implements the CRUD actions for Shoes model.
  */
@@ -101,22 +101,21 @@ class ShoesController extends Controller
 
             ]);
     }
-    
-    public function actionAddtocart($shoesId)
+  
+    public function actionCheckout()
     {
-        $model = new Cart();
+        $model = new Myorder();
     
         if ($model->load(Yii::$app->request->post())) {
+                       $model->save();
     
-            $model->save();
-    
-                return $this->redirect(['site/cart']);
+                return $this->redirect(['site/congrats']);
     
         }
     
-        return $this->renderAjax('addtocart', [
+        return $this->render('checkout', [
             'model' => $model,
-            'shoesId' => $shoesId,
+            
         ]);
     }
    
