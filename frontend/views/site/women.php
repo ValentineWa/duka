@@ -11,17 +11,11 @@ use frontend\models\Shoesimage;
 
 $shoeTotal = Shoes::find()->where(['categoryId'=> 1])->joinWith('shoesimages')->all();
 
-$this->title = 'Women Collections';
-$this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="site-about">
-    <h1><?= Html::encode($this->title) ?></h1>
-
-  </div>
-
-
 <div class="container-fluid added">
- 
+<h1 class="d-flex justify-content-center">Women Collection</h1>
+<h5 class="d-flex justify-content-center">Checkout our vast women collection</h5>
+
   <div class="row">
    
 

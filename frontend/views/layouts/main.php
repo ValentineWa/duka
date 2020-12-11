@@ -28,7 +28,7 @@ AppAsset::register($this);
 <div class="wrap" style="background: url(images/desert2.jpg)">
 <header class="header">
 <nav class="navbar nav-boot navbar-expand-lg fixed-top navbar-light bg-light navbar-fixed">
-        <a class="navbar-brand" href="index.html">Duka Prototype</a>
+        <a class="navbar-brand" href="site/index">Duka Prototype</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <i class="fa fa-bars"></i>
         </button>
@@ -46,12 +46,6 @@ AppAsset::register($this);
             </li>
             <li class="nav-item">
               <a class="nav-link" href="site/kids">Kids</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="site/searchresult">result</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="site/cart">cart</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accessories</a>
@@ -82,11 +76,7 @@ AppAsset::register($this);
              <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" id="cart_button" onlick="show_cart();" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="site/cart">Item(s)  <span class="centered">Quality</span> <span class="pull-right">Price</span></a>
-                <a class="dropdown-item" href="site/cart">Vans 1   <span class="centered">1</span><span class="pull-right">200</span></a>
-                <a class="dropdown-item" href="site/cart">Jordan x <span class="centered">1</span> <span class="pull-right">200</span></a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Total price <span class="pull-right">400</span></a>
+               <a class="dropdown-item" href="site/cart">Total price <span class="pull-right">400</span></a>
               </div>
             </li>
             </ul>
@@ -148,6 +138,8 @@ AppAsset::register($this);
         <div class="col-md-2">
           <h5>My Account</h5>
          <p class="froot"><a href="site/login">Sign in</a></p>
+         <p class="froot"><a href="duka/site/logout">Sign out</a></p>
+         
          <p class="froot"><a href="site/signup"> Register</a></p>
          <p> Order Status</p>
 
@@ -208,7 +200,7 @@ AppAsset::register($this);
 <?php $this->endBody() ?>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript">
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 

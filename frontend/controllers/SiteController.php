@@ -16,6 +16,7 @@ use frontend\models\SignupForm;
 use frontend\models\ContactForm;
 use frontend\models\Shoes;
 use frontend\models\Cart;
+
 /**
  * Site controller
  */
@@ -44,10 +45,11 @@ class SiteController extends Controller
                     ],
                 ],
             ],
+            
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['get'],
                 ],
             ],
         ];
@@ -177,10 +179,7 @@ class SiteController extends Controller
     {
         return $this->render('viewitem');
     }
-    public function actionCongrats()
-    {
-        return $this->render('congrats');
-    }
+   
     // public function actionCheckout()
     // {
     //     return $this->render('checkout');
@@ -208,6 +207,8 @@ class SiteController extends Controller
            
         ]);
     }
+    
+
     /**
      * Signs user up.
      *

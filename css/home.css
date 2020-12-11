@@ -10,6 +10,9 @@ top: 582px;
 background-color: #000000;
 
 }
+.added{
+    padding-top: 3rem;
+}
 .bloody{
     margin-top: 40rem;
 }
@@ -28,7 +31,9 @@ background-color: #000000;
 .tex{
     text-align: center;
 }
-
+.woman{
+    padding-top: 1rem;
+}
 .category{
 
     color: #000000;
@@ -81,7 +86,14 @@ margin-top: 2rem;
     position: absolute;
     bottom: 8px;
     left: 16px;
-   
+ 
+}
+.congrats{
+    color: #ddd4d4;
+    
+}
+.buron {
+    width: 8rem !important;
 }
 #social li{
     display: inline;
@@ -94,6 +106,10 @@ margin-top: 2rem;
     background: #000000;
     padding-top: 1rem;
     padding-left: 2rem;
+   bottom: 0;
+   left: 0;
+  
+  
 }
 .froot a:link{
     color: #ffffff;

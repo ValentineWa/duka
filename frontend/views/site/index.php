@@ -89,7 +89,7 @@ $this->title = 'My Yii Application';
 
                        
                        <!-- modal btn -->
-               <button type="button" class="btn btn-outline-info btn-sm btitley addtocart">Add to cart</button>
+               <button type="button" class="btn btn-outline-info btitley buron addtocart ">Add to cart</button>
                <a href="" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-info  centered" role="button">Quick View
               
                 <p></p>
@@ -150,14 +150,14 @@ $this->title = 'My Yii Application';
     <div class="row">
         <div class="col-md-12 subscribe">
             <div class="row">
-            <?php $i = 0;
+            <?php $i = 4;
        foreach ($shoeTotal as $shoe) {
-         if (++$i > 4) break; ?>
+         if (++$i > 8) break; ?>
   
             <div class="col-md-3">
                     <div class="card border border-light rounded"> <a href="<?= Url::to(['site/viewitem', 'shoesId'=>$shoez->shoesId])?>" >
                         <img src="images/men5.jpg" class="img-fluid">
-                        <button type="button"  val="<?=$shoe->shoesId?>" class="btn btn-outline-info btn-sm btitley addtocart">Add to cart</button>
+                        <button type="button"  val="<?=$shoe->shoesId?>" class="btn btn-outline-info buron btitley addtocart">Add to cart</button>
                             <!-- modal btn -->
               <a href="" data-toggle="modal" data-target="#exampleModal" class="btn btn-outline-info  centered" role="button">Quick View
               
@@ -201,7 +201,7 @@ $this->title = 'My Yii Application';
         Modal::begin([
             'title'=>'<h4>addtocart</h4>',
             'id'=>'addtocart',
-            'size'=>'modal-sm'
+            'size'=>'modal-lg'
             ]);
 
         echo "<div id='addtocartContent'></div>";

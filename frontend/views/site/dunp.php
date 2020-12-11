@@ -480,14 +480,34 @@ $cartPrice = Cart::find()->joinWith('shoes')->sum('price');
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
         </div>
     <?php ActiveForm::end(); ?>
+    <?= Html::a('Generate', ['view-pdf', 'id' => $model->orderId], ['class' => 'btn btn-primary']) ?>
 
+    public function actionCreate()
+    {
+        $model = new Myorder();
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            \Yii::$app->mailer->compose([
+            
+            ])
+                ->setFrom(\Yii::$app->params['senderEmail'])
+                ->setTo('awesomewaweru@gmail.com')
+                ->setSubject('Your order has been successfull')
+                ->send();
+                Yii::$app->session->setFlash('success', 'Thank you for your purchase');
+            return $this->redirect(['site/congrats', 'id' => $model->orderId]);
+        }
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
 </div>
 <!-- <a href="<?= Url::to(['shoes/addtocart', 'shoesId'=>$shoe->shoesId])?>" class="btn btn-outline-info btitley" role="button">Add to Cart</a> -->
 <a href="<?= Url::to(['shoes/addtocart', 'shoesId'=>$shoez->shoesId])?>" class="btn btn-outline-info btitley" role="button">Add to Cart</a>
 <a href="<?= Url::to(['shoes/addtocart', 'shoesId'=>$shoez->shoesId])?>" class="btn btn-outline-info btitley" role="button">Add to Cart</a>
 <a href="<?= Url::to(['shoes/addtocart', 'shoesId'=>$shoez->shoesId])?>" class="btn btn-outline-info btitley" role="button">Add to Cart</a>
 
-
+<?= Html::a('Generate Pdf', ['viewpdf', 'shoesId' => $model->shoesId], ['class' => 'btn btn-primary'])?>
+, 'shoesId'=>$shoeTotal->shoesId
 
 <?php
 
@@ -541,6 +561,88 @@ $userId = User::find()->where(['id'=>Yii::$app->user->id])->one();
 
         <?= $form->field($model, 'shoesId')->hiddenInput(['value' => $shoesId, 'readonly'=> true])->label(false) ?>
         <?= $form->field($model, 'userId')->hiddenInput(['value'=>$userId->id, 'readonly'=> true])->label(false) ?>
+    
+        <div class="form-group">
+            <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>
+        </div>
+    <?php ActiveForm::end(); ?>
+
+</div><!-- addtocart -->
+
+
+
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+use frontend\models\Shoes;
+use common\models\User;
+use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
+use frontend\models\Images;
+
+/* @var $this yii\web\View */
+/* @var $model frontend\models\Cart */
+/* @var $form ActiveForm */
+$shoes = Shoes::find()->JoinWith('shoesimages')->all();
+$shoe = ArrayHelper::map(Shoes::find()->all(), 'shoesId', 'price');
+$userId = User::find()->where(['id'=>Yii::$app->user->id])->one();
+$shoey = ArrayHelper::map(Shoes::find()->all(), 'shoesId', 'shoeName');
+
+?>
+
+<div class="addtocart">
+
+    <?php $form = ActiveForm::begin(['id'=> 'addtocarrt']); ?>
+<div class="shoey">
+        <?= $form->field($model, 'shoesId')->dropDownList($shoey) ?>
+    </div>
+        <?= $form->field($model, 'userId')->hiddenInput(['value'=>$userId->id, 'readonly'=> true])->label(false) ?>
+        <div class="col-md-8">
+              
+              <div class="row no-gutters">
+                <div class="col-md-6">
+                  <img src="images/women4.jpg" class="card-img img-fluid" alt="...">
+                </div>
+                <div class="col-md-6">
+                  <div class="card-body">
+                    <h5 class="card-title"></h5>
+                    <p class="card-text lead">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                  <p class="card-title lead"><span>Ksh 1999</span></p>
+                  <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star checked"></span>
+                  <span class="fa fa-star"></span>
+
+                </div>
+              </div>
+            </div>
+              </div>
+        
+              <div class="form-group">
+        	
+            <?= Html::submitButton('Add to Cart', ['class' => 'btn btn-primary']) ?>
+        </div>
+    <?php ActiveForm::end(); ?>
+
+</div><!-- addtocart -->
+<?php
+
+use yii\helpers\Html;
+use yii\widgets\ActiveForm;
+
+/* @var $this yii\web\View */
+/* @var $model frontend\models\Cart */
+/* @var $form ActiveForm */
+?>
+<div class="addtocart">
+
+    <?php $form = ActiveForm::begin(); ?>
+
+        <?= $form->field($model, 'shoesId') ?>
+        <?= $form->field($model, 'userId') ?>
     
         <div class="form-group">
             <?= Html::submitButton('Submit', ['class' => 'btn btn-primary']) ?>

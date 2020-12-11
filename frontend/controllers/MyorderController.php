@@ -2,20 +2,20 @@
 
 namespace frontend\controllers;
 
+use yii\helpers\Html;
 use Yii;
-use frontend\models\Shoes;
-use frontend\models\Shoesimage;
-use frontend\models\ShoesSearch;
+use frontend\models\Myorder;
+use frontend\models\MyorderSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
-use frontend\models\Cart;
-use frontend\models\Myorder;
+use Mpdf\Mpdf; 
+
+
 /**
- * ShoesController implements the CRUD actions for Shoes model.
+ * MyorderController implements the CRUD actions for Myorder model.
  */
-class ShoesController extends Controller
+class MyorderController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -33,12 +33,12 @@ class ShoesController extends Controller
     }
 
     /**
-     * Lists all Shoes models.
+     * Lists all Myorder models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new ShoesSearch();
+        $searchModel = new MyorderSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -48,7 +48,7 @@ class ShoesController extends Controller
     }
 
     /**
-     * Displays a single Shoes model.
+     * Displays a single Myorder model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -61,17 +61,35 @@ class ShoesController extends Controller
     }
 
     /**
-     * Creates a new Shoes model.
+     * Creates a new Myorder model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+//     Yii::$app->mail->compose()
+//    ->attachContent($pathToPdfFile, [
+//         'fileName'    => 'Name of your pdf',
+//         'contentType' => 'application/pdf'
+//    ])
+//    // to & subject & content of message
+//    ->send();
     public function actionCreate()
     {
-        $model = new Shoes();
+        $model = new Myorder();
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-          
-            return $this->redirect(['addimage', 'shoesId' => $model->shoesId]);
+            \Yii::$app->mailer->compose([
+       
+    ])
+   
+ 
+            
+               
+                    ->setFrom(\Yii::$app->params['senderEmail'])
+                    ->setTo('test@example.com')
+                    ->setSubject('Your order has been successful')
+                    ->send();
+                    Yii::$app->session->setFlash('success', 'Thank you for your purchase');
+            return $this->redirect(['view', 'id' => $model->orderId]);
         }
 
         return $this->render('create', [
@@ -79,51 +97,45 @@ class ShoesController extends Controller
         ]);
     }
 
-    public function actionAddimage($shoesId)
-    {
-        $model = new Shoesimage();
-        if ($model->load(Yii::$app->request->post()))
-        {
+    // public function actionViewpdf($id)
+    // { 
+        
 
-           //generates images with unique names
-            $imageName = bin2hex(openssl_random_pseudo_bytes(10));
-            $model->image = UploadedFile::getInstance($model, 'image');
-            //saves file in the root directory
-            $model->image->saveAs('uploads/.'.$imageName.'.'.$model->image->extension);
-            //save in the db
-            $model->image='uploads/'.$imageName.'.'.$model->image->extension;
-            $model->save();
-            return $this->redirect(['index']);
-        }
-            return $this->render('addimage', [
-                'model' => $model,
-                'shoesId' =>$shoesId,
-
-            ]);
-    }
-  
-    
-    public function actionCheckout()
+    //     $pdf_content = $this->renderPartial('viewpdf', [
+    //         'model' => $this->findModel($id),
+           
+          
+              
+    //     ]); 
+         
+    //       $mpdf = new Mpdf();
+    //          $mpdf->WriteHtml($pdf_content);
+    //          $mpdf->Output();
+    //          exit;
+    // }
+    public function actionViewpdf($id)
     {
-        $model = new Myorder();
-    
-        if ($model->load(Yii::$app->request->post())) {
-                       $model->save();
-    
-                return $this->redirect(['myorder/view']);
-    
-        }
-    
-        return $this->render('checkout', [
-            'model' => $model,
-            
+     
+           $pdfcontent= $this->renderPartial('viewpdf', [
+            'model' => $this->findModel($id),
         ]);
+        
+        $mpdf = new Mpdf();
+        $mpdf->WriteHtml($pdfcontent);
+        $mpdf->Output(); 
+        exit;
+      
+      
     }
-   
+//     $mpdf=new mPDF();
+// $mpdf->WriteHTML($this->renderPartial('pdf',['model' => $model])); //pdf is a name of view file responsible for this pdf document
+// $path = $mpdf->Output('', 'S'); 
 
-   
-  /**
-     * Updates an existing Shoes model.
+// Yii::$app->mail->compose()
+// ->attachContent($path, ['fileName' => 'Invoice #'.$model->number.'
+ 
+    /**
+     * Updates an existing Myorder model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -134,16 +146,20 @@ class ShoesController extends Controller
         $model = $this->findModel($id);
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->shoesId]);
+            return $this->redirect(['view', 'id' => $model->orderId]);
         }
 
         return $this->render('update', [
             'model' => $model,
         ]);
     }
+    public function actionCongrats()
+    {
+        return $this->render('congrats');
+    }
 
     /**
-     * Deletes an existing Shoes model.
+     * Deletes an existing Myorder model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -157,15 +173,15 @@ class ShoesController extends Controller
     }
 
     /**
-     * Finds the Shoes model based on its primary key value.
+     * Finds the Myorder model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Shoes the loaded model
+     * @return Myorder the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Shoes::findOne($id)) !== null) {
+        if (($model = Myorder::findOne($id)) !== null) {
             return $model;
         }
 

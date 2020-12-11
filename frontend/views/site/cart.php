@@ -159,7 +159,7 @@ $cartPrice = Cart::find()->joinWith('shoes')->sum('price');
             </div>
              
           
-           <a href="<?= Url::to(['shoes/checkout'])?>" class="btn btn-dark btn-lg" role="button">Checkout</a>
+           <a href="<?= Url::to(['myorder/create'])?>" class="btn btn-dark btn-lg" role="button">Checkout</a>
                 
           </div>
          
