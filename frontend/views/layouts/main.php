@@ -26,64 +26,56 @@ AppAsset::register($this);
 <body class="h-75">
 <?php $this->beginBody() ?>
 <div class="wrap" style="background: url(images/desert2.jpg)">
-<header class="header">
-<nav class="navbar nav-boot navbar-expand-lg fixed-top navbar-light bg-light navbar-fixed">
-        <a class="navbar-brand" href="site/index">Duka Prototype</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <i class="fa fa-bars"></i>
-        </button>
-        <div class="container">
-          <div class="collapse navbar-collapse pull-right" id="navbarSupportedContent">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="site/index">Home <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="site/women">Women</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="site/men">Men</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="site/kids">Kids</a>
-            </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Accessories</a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="site/access">Gold</a>
-                <a class="dropdown-item" href="site/access">Silver</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="site/access">Platinum</a>
-              </div>
-            </li>
-          </ul>
-        </div>
-         <!-- ! search-cart-nav -->
-            <div class="search-cart-nav">
-              <ul class="navbar-nav mr-auto right">
-            <li class="nav-item search">
-              <form class="navbar-form navbar-left" action="<?= Url::to(['shoes/_search']) ?>" >
-                <div class="input-group">
-                  <input type="text" class="form-control" type="search" name="keyword" placeholder="Search">
-                  <div class="input-group-btn">
-                    <button class="btn btn-default" >
-                      <i class="fa fa-search"></i>
-                    </button>
-                  </div>
-                </div>
-              </form> </li><!--/.search-->
-           
-             <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" id="cart_button" onlick="show_cart();" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-               <a class="dropdown-item" href="site/cart">Total price <span class="pull-right">400</span></a>
-              </div>
-            </li>
-            </ul>
-          </div>
-          <!-- end search -->
+<header class="header"><!-- navbar -->
+  <nav class="navbar nav-boot navbar-expand-lg fixed-top navbar-light light-green navbar-fixed">
+    <a class="navbar-brand" href="index.html">
+      <i class="fa fa-briefcase fa-3x yell" aria-hidden="true"></i>
+      <!-- <img src="img/logg.png" alt="Job Search" width="100" height="50" loading="lazy"> -->
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fa fa-bars"></i>
+    </button>
+    <div class="container">
+      <div class="collapse navbar-collapse pull-right" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active yell">
+            <a class="nav-link text-warning" href="index.html">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item yell">
+            <a class="nav-link" href="listings.html">Jobs</a>
+          </li>
+          
+          <li class="nav-item yell">
+            <a class="nav-link " href="company.html">About</a>
+          </li>
+          <li class="nav-item yell">
+            <a class="nav-link" href="company.html">Contact</a>
+          </li>
+        
+        </ul>
       </div>
-      </nav>
+      </div>
+      <div class="pull-right">
+        <ul class="navbar-nav mr-auto right">
+          <li class="nav-item dropdown yell">
+            <a class="nav-link dropdown-toggle " href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dashboard</a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+             
+               <a class="dropdown-item text-dark" href="postjob.html">Post Job</a>
+              <a class="dropdown-item text-dark" href="profile.html">Profile</a> 
+              <a class="dropdown-item text-dark" href="profile.html">Login</a>
+               <a class="dropdown-item text-dark" href="profile.html">Sign Up</a>
+             
+            </div>
+          </li>
+         
+          
+        </ul> 
+      </div> 
+         
+
+    </nav>
+<!-- end navbar -->
 </header>
 <div class="container-fluid">
         <?= Breadcrumbs::widget([

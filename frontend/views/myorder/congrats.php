@@ -24,7 +24,7 @@ $shoel = Shoes::find()->joinWith('shoesimages')->all();
 <h2>Your Order is successful </h2>
 <h4>Thank You </h4>
 <h4>for shopping with us</h4>
-<?= Html::a('Generate Order Report', ['congrats', 'id' => $model->orderId], ['class' => 'btn btn-success'])?>
+
 <br></div>
 
 <div class="col-md-3"></div>

@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'method' => 'post',
             ],
         ]) ?>
-        <?= Html::a('Generate Order Report', ['viewpdf','congrats', 'id' => $model->orderId], [     'class' => 'btn btn-success'])?>
+        <?= Html::a('Generate Order Report', ['viewpdf', 'id' => $model->orderId], [     'class' => 'btn btn-success'])?>
     </p>
 
     <?= DetailView::widget([
@@ -37,6 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             'emailAddress:email',
         ],
     ]) ?>
+   <?= Html::a('Finish', ['congrats'], [     'class' => 'btn btn-success'])?>
   
     
 </div>

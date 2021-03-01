@@ -76,7 +76,7 @@ class Shoes extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'shoesId' => 'Shoes ID',
+            'shoesId' => 'Shoe',
             'shoeName' => 'Shoe Name',
             'shoeSize' => 'Shoe Size',
             'price' => 'Price',

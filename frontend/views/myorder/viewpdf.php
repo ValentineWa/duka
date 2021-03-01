@@ -17,9 +17,9 @@ $cartPrice = Cart::find()->joinWith('shoes')->sum('price');
 
 
 ?>
-<h1>CONGRATULATIONS </h1><p><?= \Yii::$app->User->username ?></p>
+<h1>CONGRATULATIONS <?= \Yii::$app->User->username ?></h1>
 <br>
-<h2>Your Order is successful </h2>
+<h2>Your Order is successful! </h2>
 <h4>Thank You for shopping with us</h4>
 
 
@@ -34,6 +34,7 @@ $cartPrice = Cart::find()->joinWith('shoes')->sum('price');
             'emailAddress:email',
         ],
     ]) ?>
+
   <h4>Total Price Order:<?= $cartPrice ?></h4>
   <div class="card col-md-8 shopp shadow-lg p-3 mb-5 bg-white rounded ">
            
@@ -44,10 +45,13 @@ $cartPrice = Cart::find()->joinWith('shoes')->sum('price');
           <div class="row">
             
             <div class="col-md-6">
+             
+      
               <p><b>Name:</b> <?=$calist->shoes->shoeName ?></p>
               <p><b>Description:</b> <?=$calist->shoes->description ?></p>
               <p><b>Size:</b> <?=$calist->shoes->shoeSize ?></p>
               <!-- <p> <i class="fa fa-trash-o trash" aria-hidden="true"></i></p> -->
+                
             </div>
             
             <!-- <div class="col-md-3">
